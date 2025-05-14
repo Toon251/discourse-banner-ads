@@ -49,6 +49,17 @@
   }
 }
 
+.swiper-container {
+  width: 100%;
+  height: 300px;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .banner-box {
   width: $large-width;
   max-width: calc(100% - 16px);

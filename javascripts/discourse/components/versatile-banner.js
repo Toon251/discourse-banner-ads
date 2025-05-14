@@ -12,6 +12,8 @@ export default class VersatileBanner extends Component {
   @service site;
   @service currentUser;
 
+
+
   @tracked bannerClosed = this.cookieClosed || false;
   @tracked
   bannerCollapsed =
@@ -47,6 +49,9 @@ export default class VersatileBanner extends Component {
       icon: convertIconClass(settings.fourth_column_icon),
     },
   ];
+
+  @tracked banners = settings.banner_images;
+
 
   get cookieExpirationDate() {
     if (settings.cookie_lifespan === "none") {
