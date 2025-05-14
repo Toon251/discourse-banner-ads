@@ -17,8 +17,6 @@ url_must_contain:
   type: list
   list_type: simple
   default: /latest|/categories|/new|/unread|/top*|/tag/*|/tags/*|/c/*|/t/*
-banner_url:
-  type: string
 dismissible:
   type: bool
   default: false
@@ -58,6 +56,9 @@ plugin_outlet:
 banner_background_image:
   type: string
   default: "https://i.imgur.com/k7SnZth.jpg"
+banner_url:
+  type: string
+  default: ""
 banner_background_image_dark:
   type: string
   default: ""
