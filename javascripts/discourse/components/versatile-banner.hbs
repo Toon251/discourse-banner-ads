@@ -29,6 +29,18 @@
               <img class="banner-image" src="{{theme-setting 'banner_url'}}" alt="banner"/>
             </div>
           {{/if}}
+          {{#if (theme-setting 'banner_list')}}
+            <div class="banner-container">
+              {{#if this.current_banner_link}}
+              <a class="banner-link" href="{{this.current_banner_link}}" target="_blank">
+                <img class="banner-image" src="{{this.current_banner_img}}" alt="{{this.current_banner_alt}}"/>
+              </a>
+              {{/if}}
+              {{#unless this.current_banner_link}}
+                <img class="banner-image" src="{{this.current_banner_img}}" alt="{{this.current_banner_alt}}"/>
+              {{/unless}}
+            </div>
+          {{/if}}
           {{#unless (theme-setting 'hide_main_content') }}
             {{html-safe (theme-setting "main_heading_content")}}
           {{/unless}}

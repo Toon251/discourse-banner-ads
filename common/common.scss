@@ -335,3 +335,15 @@
   object-fit: cover; /* Crop the image to maintain aspect ratio */
   transition: opacity 0.5s ease; /* Smooth transition for swapping */
 }
+
+/* Style the clickable link */
+.banner-link {
+  display: inline-block; /* Ensure the link behaves as a block */
+  text-decoration: none; /* Remove underline decoration */
+  width: 100%; /* Make the link span the full width */
+  height: auto; /* Allow dynamic height */
+  outline: none; /* Remove focus outlines (optional) */
+  border: none; /* For a clean link area */
+  cursor: pointer;
+}
+
