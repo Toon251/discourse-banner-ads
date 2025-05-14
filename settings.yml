@@ -59,6 +59,10 @@ banner_background_image:
 banner_url:
   type: string
   default: ""
+banner_list:
+  type: list
+  list_type: simple
+  default: ""
 banner_background_image_dark:
   type: string
   default: ""

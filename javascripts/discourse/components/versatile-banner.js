@@ -50,7 +50,7 @@ export default class VersatileBanner extends Component {
     },
   ];
 
-  @tracked banners = settings.banner_images;
+  @tracked banners = settings.banner_list;
 
 
   get cookieExpirationDate() {
