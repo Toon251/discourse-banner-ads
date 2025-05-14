@@ -63,6 +63,7 @@ banner_list:
   type: list
   list_type: simple
   default: ""
+  description: "Format: Image;LinkUrl;Alt"
 banner_background_image_dark:
   type: string
   default: ""

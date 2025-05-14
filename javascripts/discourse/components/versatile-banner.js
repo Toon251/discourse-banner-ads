@@ -51,6 +51,11 @@ export default class VersatileBanner extends Component {
   ];
 
   @tracked banners = settings.banner_list;
+  @tracked current_banner_img;
+  @tracked current_banner_link;
+  @tracked current_banner_alt;
+  current_banner_index = 0;
+
 
 
   get cookieExpirationDate() {
@@ -91,6 +96,19 @@ export default class VersatileBanner extends Component {
   }
 
   get shouldShow() {
+    if(this.showOnRoute && this.banners){
+      const arr = this.banners.split("|");
+      if(arr.length > 1) {
+        const arrBanner = arr[this.current_banner_index].split(";");
+        if(arrBanner.length == 3){
+          this.current_banner_img = arrBanner[0];
+          this.current_banner_link = arrBanner[1];
+          this.current_banner_alt = arrBanner[2];
+        }
+
+        this.current_banner_img
+      }
+    }
     return this.displayForUser && this.showOnRoute;
   }
 
