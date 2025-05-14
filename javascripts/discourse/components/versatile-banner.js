@@ -104,27 +104,27 @@ export default class VersatileBanner extends Component {
   }
 
   swapBanner() {
-
+    console.log("Swap banner");
     const arr = this.banners.split("|");
-      if(arr.length > 1) {
-        this.banner_count = arr.length;
-        const arrBanner = arr[this.current_banner_index].split(";");
-        if(arrBanner.length == 3){
-          this.current_banner_img = arrBanner[0];
-          this.current_banner_link = arrBanner[1];
-          this.current_banner_alt = arrBanner[2];
-        }
-
-        if(this.current_banner_index < this.banner_count -1){
-          this.current_banner_index += 1;
-        }else{
-          this.current_banner_index = 0;
-        }
-        
-
-        setTimeout(this.swapBanner, settings.banner_swap_interval);
-        
+    if(arr.length > 1) {
+      this.banner_count = arr.length;
+      const arrBanner = arr[this.current_banner_index].split(";");
+      if(arrBanner.length == 3){
+        this.current_banner_img = arrBanner[0];
+        this.current_banner_link = arrBanner[1];
+        this.current_banner_alt = arrBanner[2];
       }
+
+      if(this.current_banner_index < this.banner_count -1){
+        this.current_banner_index += 1;
+      }else{
+        this.current_banner_index = 0;
+      }
+      
+      
+      setTimeout(this.swapBanner, settings.banner_swap_interval);
+      
+    }
 
     
   }
