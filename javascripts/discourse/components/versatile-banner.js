@@ -103,7 +103,7 @@ export default class VersatileBanner extends Component {
     return this.displayForUser && this.showOnRoute;
   }
 
-  swapBanner(index) {
+  swapBanner = (index) =>  {
     console.log("Swap banner");
     const arr = settings.banner_list.split("|");
     if(arr.length > 1) {
@@ -122,7 +122,7 @@ export default class VersatileBanner extends Component {
       }
       
       
-      setTimeout(this.swapBanner, settings.banner_swap_interval, nextIndex);
+      setTimeout(this.swapBanner, settings.banner_swap_interval, parseInt(nextIndex));
       
     }
 
