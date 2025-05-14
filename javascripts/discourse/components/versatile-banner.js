@@ -98,32 +98,31 @@ export default class VersatileBanner extends Component {
 
   get shouldShow() {
     if(this.showOnRoute && this.banners){
-      this.swapBanner();
+      this.swapBanner(0);
     }
     return this.displayForUser && this.showOnRoute;
   }
 
-  swapBanner() {
+  swapBanner(index) {
     console.log("Swap banner");
     const arr = settings.banner_list.split("|");
     if(arr.length > 1) {
       this.banner_count = arr.length;
-      console.log("Current index ", this.current_banner_index)
-      const arrBanner = arr[this.current_banner_index].split(";");
+      const arrBanner = arr[index].split(";");
       if(arrBanner.length == 3){
         this.current_banner_img = arrBanner[0];
         this.current_banner_link = arrBanner[1];
         this.current_banner_alt = arrBanner[2];
       }
-
-      if(this.current_banner_index < this.banner_count-1){
-        this.current_banner_index += 1;
+      let nextIndex = index;
+      if(index < this.banner_count-1){
+        nextIndex += 1;
       }else{
-        this.current_banner_index = 0;
+        nextIndex = 0;
       }
       
       
-      setTimeout(this.swapBanner, settings.banner_swap_interval);
+      setTimeout(this.swapBanner, settings.banner_swap_interval, nextIndex);
       
     }
 
