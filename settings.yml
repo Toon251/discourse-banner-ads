@@ -59,6 +59,10 @@ banner_background_image:
 banner_url:
   type: string
   default: ""
+banner_swap_interval:
+  type: Integer
+  default: 5000
+  description: "Interval (milliseconds)"
 banner_list:
   type: list
   list_type: simple

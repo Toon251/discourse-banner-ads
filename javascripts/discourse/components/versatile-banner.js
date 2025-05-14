@@ -55,6 +55,7 @@ export default class VersatileBanner extends Component {
   @tracked current_banner_link;
   @tracked current_banner_alt;
   current_banner_index = 0;
+  banner_count = 0;
 
 
 
@@ -97,8 +98,16 @@ export default class VersatileBanner extends Component {
 
   get shouldShow() {
     if(this.showOnRoute && this.banners){
-      const arr = this.banners.split("|");
+      this.swapBanner();
+    }
+    return this.displayForUser && this.showOnRoute;
+  }
+
+  swapBanner() {
+
+    const arr = this.banners.split("|");
       if(arr.length > 1) {
+        this.banner_count = arr.length;
         const arrBanner = arr[this.current_banner_index].split(";");
         if(arrBanner.length == 3){
           this.current_banner_img = arrBanner[0];
@@ -106,10 +115,18 @@ export default class VersatileBanner extends Component {
           this.current_banner_alt = arrBanner[2];
         }
 
-        this.current_banner_img
+        if(this.current_banner_index < this.banner_count -1){
+          this.current_banner_index += 1;
+        }else{
+          this.current_banner_index = 0;
+        }
+        
+
+        setTimeout(this.swapBanner, settings.banner_swap_interval);
+        
       }
-    }
-    return this.displayForUser && this.showOnRoute;
+
+    
   }
 
   get toggleLabel() {
