@@ -24,8 +24,8 @@
         </div>
         <div class="section-header">
           {{#if (theme-setting 'banner_url') }}
-            <div>
-              <img src="{{theme-setting 'banner_url'}}" alt="banner"/>
+            <div class="banner-container">
+              <img class="banner-image" src="{{theme-setting 'banner_url'}}" alt="banner"/>
             </div>
           {{/if}}
           {{html-safe (theme-setting "main_heading_content")}}

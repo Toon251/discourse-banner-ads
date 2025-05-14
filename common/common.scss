@@ -321,3 +321,16 @@
     transition: max-height 0.5s ease;
   }
 }
+
+.banner-container {
+  width: 100%;
+  display: flex;
+  justify-items: center;
+
+}
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crop the image to maintain aspect ratio */
+  transition: opacity 0.5s ease; /* Smooth transition for swapping */
+}
