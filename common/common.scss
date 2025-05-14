@@ -119,7 +119,7 @@
   }
 
   .section-header {
-    padding-bottom: 20px;
+    
 
     .x-title {
       padding: 25px 65px;
@@ -312,6 +312,7 @@
 // if the content is taller than the max-height, this will need to be adjusted
 // but if it's too large, clicking collapse animation will feel laggy
 #banner-content_wrap {
+  padding-top: 20px;
   overflow: hidden;
   max-height: 1000px;
   transition: max-height 1s ease;
