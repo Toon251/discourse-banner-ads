@@ -23,7 +23,11 @@
           {{/if}}
         </div>
         <div class="section-header">
-          <div>Url : {{theme-setting 'banner_url'}}</div>
+          {{if (theme-setting 'banner_url') }}
+            <div>
+              <img src="{{theme-setting 'banner_url'}}" alt="banner"/>
+            </div>
+          {{/if}}
           {{html-safe (theme-setting "main_heading_content")}}
         </div>
         <div
