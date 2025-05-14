@@ -28,25 +28,30 @@
               <img class="banner-image" src="{{theme-setting 'banner_url'}}" alt="banner"/>
             </div>
           {{/if}}
-          {{html-safe (theme-setting "main_heading_content")}}
+          {{#unless (theme-setting 'hide_main_content') }}
+            {{html-safe (theme-setting "main_heading_content")}}
+          {{/unless}}
         </div>
-        <div
-          id="banner-content_wrap"
-          class={{if
-            (and (theme-setting "collapsible") this.bannerCollapsed)
-            "--banner-collapsed"
-          }}
-        >
-          <div class="row">
-            {{#each this.columnData as |data|}}
-              <VersatileBannerColumn
-                @columnContent={{data.content}}
-                @icon={{data.icon}}
-                @columnClass={{data.class}}
-              />
-            {{/each}}
+        {{#unless (theme-setting 'hide_column_content') }}
+          <div
+            id="banner-content_wrap"
+            class={{if
+              (and (theme-setting "collapsible") this.bannerCollapsed)
+              "--banner-collapsed"
+            }}
+          >
+            <div class="row">
+              {{#each this.columnData as |data|}}
+                <VersatileBannerColumn
+                  @columnContent={{data.content}}
+                  @icon={{data.icon}}
+                  @columnClass={{data.class}}
+                />
+              {{/each}}
+            </div>
           </div>
-        </div>
+        {{/unless}}
+        
       </div>
     </div>
   {{/unless}}

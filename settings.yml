@@ -86,6 +86,9 @@ link_text_color:
 link_text_color_dark:
   type: string
   default: ""
+hide_main_content:
+  type: bool
+  default: true
 main_heading_content:
   type: string
   textarea: true
@@ -104,6 +107,9 @@ main_heading_content:
       </p>
     </div>
     <div class="colored-line"></div>
+hide_column_content:
+  type: bool
+  default: true
 first_column_content:
   type: string
   textarea: true
