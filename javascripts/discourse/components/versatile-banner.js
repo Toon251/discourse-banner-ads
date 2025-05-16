@@ -104,13 +104,11 @@ export default class VersatileBanner extends Component {
   }
 
   swapBanner = (index) =>  {
-    console.log("swap banner");
-    console.log(settings.banner_list);
+  
     const arr = settings.banner_list.split("|");
     if(arr.length >= 1) {
       this.banner_count = arr.length;
       const arrBanner = arr[index].split(";");
-      console.log(arr[index]);
       if(arrBanner.length == 3){
         this.current_banner_img = arrBanner[0];
         this.current_banner_link = arrBanner[1];
