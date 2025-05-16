@@ -105,6 +105,7 @@ export default class VersatileBanner extends Component {
 
   swapBanner = (index) =>  {
     console.log("swap banner");
+    console.log(settings.banner_list);
     const arr = settings.banner_list.split("|");
     if(arr.length > 1) {
       this.banner_count = arr.length;
