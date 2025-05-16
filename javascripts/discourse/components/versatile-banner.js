@@ -109,6 +109,7 @@ export default class VersatileBanner extends Component {
     if(arr.length > 1) {
       this.banner_count = arr.length;
       const arrBanner = arr[index].split(";");
+      console.log(arr[index]);
       if(arrBanner.length == 3){
         this.current_banner_img = arrBanner[0];
         this.current_banner_link = arrBanner[1];
