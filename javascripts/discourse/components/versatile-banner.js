@@ -12,6 +12,8 @@ export default class VersatileBanner extends Component {
   @service site;
   @service currentUser;
 
+
+
   @tracked bannerClosed = this.cookieClosed || false;
   @tracked
   bannerCollapsed =
@@ -47,6 +49,15 @@ export default class VersatileBanner extends Component {
       icon: convertIconClass(settings.fourth_column_icon),
     },
   ];
+
+  @tracked banners = settings.banner_list;
+  @tracked current_banner_img;
+  @tracked current_banner_link;
+  @tracked current_banner_alt;
+  @tracked current_banner_index = 0;
+  banner_count = 0;
+
+
 
   get cookieExpirationDate() {
     if (settings.cookie_lifespan === "none") {
@@ -86,7 +97,36 @@ export default class VersatileBanner extends Component {
   }
 
   get shouldShow() {
+    if(this.showOnRoute && this.banners){
+      this.swapBanner(0);
+    }
     return this.displayForUser && this.showOnRoute;
+  }
+
+  swapBanner = (index) =>  {
+  
+    const arr = settings.banner_list.split("|");
+    if(arr.length >= 1) {
+      this.banner_count = arr.length;
+      const arrBanner = arr[index].split(";");
+      if(arrBanner.length == 3){
+        this.current_banner_img = arrBanner[0];
+        this.current_banner_link = arrBanner[1];
+        this.current_banner_alt = arrBanner[2];
+      }
+      let nextIndex = index;
+      if(index < this.banner_count-1){
+        nextIndex += 1;
+      }else{
+        nextIndex = 0;
+      }
+      
+      
+      setTimeout(this.swapBanner, settings.banner_swap_interval, parseInt(nextIndex));
+      
+    }
+
+    
   }
 
   get toggleLabel() {

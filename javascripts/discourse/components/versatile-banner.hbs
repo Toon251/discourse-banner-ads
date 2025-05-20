@@ -23,25 +23,47 @@
           {{/if}}
         </div>
         <div class="section-header">
-          {{html-safe (theme-setting "main_heading_content")}}
+          {{#if (theme-setting 'banner_url') }}
+            <div class="banner-container">
+              <img class="banner-image" src="{{theme-setting 'banner_url'}}" alt="banner"/>
+            </div>
+          {{/if}}
+          {{#if (theme-setting 'banner_list')}}
+            <div class="banner-container">
+              {{#if this.current_banner_link}}
+              <a class="banner-link" href="{{this.current_banner_link}}" target="_blank">
+                <img class="banner-image" src="{{this.current_banner_img}}" alt="{{this.current_banner_alt}}"/>
+              </a>
+              {{/if}}
+              {{#unless this.current_banner_link}}
+                <img class="banner-image" src="{{this.current_banner_img}}" alt="{{this.current_banner_alt}}"/>
+              {{/unless}}
+            </div>
+          {{/if}}
+          {{#unless (theme-setting 'hide_main_content') }}
+            {{html-safe (theme-setting "main_heading_content")}}
+          {{/unless}}
         </div>
-        <div
-          id="banner-content_wrap"
-          class={{if
-            (and (theme-setting "collapsible") this.bannerCollapsed)
-            "--banner-collapsed"
-          }}
-        >
-          <div class="row">
-            {{#each this.columnData as |data|}}
-              <VersatileBannerColumn
-                @columnContent={{data.content}}
-                @icon={{data.icon}}
-                @columnClass={{data.class}}
-              />
-            {{/each}}
+        {{#unless (theme-setting 'hide_column_content') }}
+          <div
+            id="banner-content_wrap"
+            class={{if
+              (and (theme-setting "collapsible") this.bannerCollapsed)
+              "--banner-collapsed"
+            }}
+          >
+            <div class="row">
+              {{#each this.columnData as |data|}}
+                <VersatileBannerColumn
+                  @columnContent={{data.content}}
+                  @icon={{data.icon}}
+                  @columnClass={{data.class}}
+                />
+              {{/each}}
+            </div>
           </div>
-        </div>
+        {{/unless}}
+        
       </div>
     </div>
   {{/unless}}

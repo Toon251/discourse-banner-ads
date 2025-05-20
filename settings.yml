@@ -56,6 +56,18 @@ plugin_outlet:
 banner_background_image:
   type: string
   default: "https://i.imgur.com/k7SnZth.jpg"
+banner_url:
+  type: string
+  default: ""
+banner_swap_interval:
+  type: integer
+  default: 5000
+  description: "Interval (milliseconds)"
+banner_list:
+  type: list
+  list_type: simple
+  default: ""
+  description: "Format: Image;LinkUrl;Alt"
 banner_background_image_dark:
   type: string
   default: ""
@@ -83,6 +95,9 @@ link_text_color:
 link_text_color_dark:
   type: string
   default: ""
+hide_main_content:
+  type: bool
+  default: true
 main_heading_content:
   type: string
   textarea: true
@@ -101,6 +116,9 @@ main_heading_content:
       </p>
     </div>
     <div class="colored-line"></div>
+hide_column_content:
+  type: bool
+  default: true
 first_column_content:
   type: string
   textarea: true
